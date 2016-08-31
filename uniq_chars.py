@@ -14,9 +14,20 @@ def IsUnique(string):
       d[char] = True
   return True
 
+# Como lo sugiere el codigo inicial, hacemos que en vez de determinar si una palabra tiene letras unicas, un texto determine si tiene palabras 
+# con letras unicas
+def giveUnique (texto):
+  lista = []
+  for i in range (len (texto)):
+    if IsUnique(texto[i]):
+      lista.insert(len(lista),texto[i])
+  return lista       
+
 if __name__ == '__main__':
-  string = sys.argv[1]
-  if IsUnique(string):
-    print 'Is Unique!'
-  else:
-    print 'Not Unique!'
+  
+  f = open(sys.argv[1])
+
+  l = f.read().split()
+
+  print (giveUnique (l))
+

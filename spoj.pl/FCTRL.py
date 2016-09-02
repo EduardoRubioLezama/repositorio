@@ -1,9 +1,25 @@
+#*-* encoding: utf-8 *-*
+
 #!/usr/bin/env python
 #
 # https://www.spoj.pl/problems/FCTRL
 #
 
+# El algoritmo GetZeros corre en tiempo 2 lg (5,x) , con esta pequeña 
+# modificacion el algoritmo corre en tiempo lg (5,x) que para ejemplares
+# amplios nos ahorramos un poco de tiempo de ejcucion
+def modf_GetZeros(number):
+  zeros = 0
+  potencia = 1
+  while True:
+    parte_entera = number / (5**potencia)
 
+    zeros += parte_entera
+    potencia += 1
+    if (parte_entera < 1):
+      break
+  return zeros    
+      
 def GetZeros(number):
   zeros = 0
   value = 5
@@ -28,6 +44,7 @@ if __name__ == '__main__':
     numbers.append(int(raw_input()))
 
   for i in numbers:
-    results.append(GetZeros(i))
+    results.append(modf_GetZeros(i))
 
   print '\n'.join([str(result) for result in results])
+  

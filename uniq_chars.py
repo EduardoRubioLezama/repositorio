@@ -5,6 +5,15 @@
 
 import sys
 
+def duplicateWords (lista):
+  conjunto = set()
+  duplicadas = 0
+  for i in range (len(lista)):
+    conjunto.add(lista[i])
+  duplicadas = len(lista) - len(conjunto)
+  return duplicadas  
+
+
 def IsUnique(string):
   d = {}
   for char in string:
@@ -30,4 +39,4 @@ if __name__ == '__main__':
   l = f.read().split()
 
   print (giveUnique (l))
-
+  print (duplicateWords(l))
